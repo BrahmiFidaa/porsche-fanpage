@@ -1,0 +1,109 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.header-f1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-f1 h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.header-f1 p {
+    font-size: 1.5rem;
+}
+
+.split-wrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.left-split, .right-split {
+    position: relative;
+    height: 100%;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.left-split {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+.right-split {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+}
+
+.left-split img, .right-split img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: transform 0.5s ease;
+}
+
+.left-split h3, .right-split h3 {
+    font-size: 2rem;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+/* Default split (50/50) */
+.left-split, .right-split {
+    flex: 1;
+}
+
+/* Expanded state (70% width) */
+.left-split.expanded, .right-split.expanded {
+    flex: 1.5;
+}
+
+.left-split.expanded img, .right-split.expanded img {
+    transform: scale(1.05);
+}
+
+.left-split.expanded h3, .right-split.expanded h3 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Collapsed state (30% width) */
+.left-split.collapsed, .right-split.collapsed {
+    flex: 0.7;
+}
+
+.left-split.collapsed img, .right-split.collapsed img {
+    transform: scale(1);
+}
+/* Add these rules to your existing CSS */
+.left-split img, 
+.right-split img {
+  display: block; /* Ensures images are visible */
+  width: 100%;    /* Makes images fill containers */
+  height: auto;   /* Maintains aspect ratio */
+  position: relative; /* Overrides any absolute positioning hiding them */
+  z-index: 1;     /* Brings images above any potential overlays */
+}
